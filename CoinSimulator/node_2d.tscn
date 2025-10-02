@@ -40,3 +40,5 @@ offset_right = -418.492
 offset_bottom = 334.83
 text = "CASINO
 "
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

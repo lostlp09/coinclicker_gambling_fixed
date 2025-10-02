@@ -1,24 +1,12 @@
 extends Node2D
-
-@onready var textobject:Label = $Label
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-
-	
-	
-	
-	pass # Replace with function body.
+@onready var amount = $Label
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	print(Money.money)
-	Money.money  = 300
-	
-	var text =  Money.money
-	textobject.text = str(text)
-	
+	amount.text = "amount: " + str(amount.get_meta("amount"))
 
 
-func _on_button_2_pressed() -> void:
-	pass # Replace with function body.
+
+
+func _on_back_pressed() -> void:
+	get_tree().change_scene_to_file("res://node_2d.tscn")

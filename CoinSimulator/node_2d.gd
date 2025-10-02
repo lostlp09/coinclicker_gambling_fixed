@@ -4,6 +4,7 @@ extends Node2D
 # Called when the node enters the scene tree for the first time
 @onready var label:Label = $Coin
 func _ready() -> void:
+	label.text = str(Money.money)
 	coin.pressed.connect(oncoinpressed)
 
 func oncoinpressed() -> void:
@@ -45,4 +46,10 @@ func effectfunc(effectparticle) -> void:
 	
 
 
+	
+
+
+func _on_button_pressed() -> void:
+	
+	get_tree().change_scene_to_file("res://Gambling.tscn")
 	

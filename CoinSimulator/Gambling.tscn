@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dyqf74mwpma3r"]
+[gd_scene load_steps=5 format=3 uid="uid://dyqf74mwpma3r"]
 
 [ext_resource type="Script" uid="uid://c478garu5fuor" path="res://gambling.gd" id="1_jtgiy"]
 [ext_resource type="Script" uid="uid://chkphmnf8s5b8" path="res://button.gd" id="2_u2xo6"]
+[ext_resource type="Script" uid="uid://d3e5rqyewymbg" path="res://gambleprocess.gd" id="3_pe2fi"]
+[ext_resource type="Script" uid="uid://lid3upx7hdjm" path="res://money2.gd" id="4_pe2fi"]
 
 [node name="Gambling" type="Node2D"]
 script = ExtResource("1_jtgiy")
@@ -17,6 +19,7 @@ text = "+10"
 script = ExtResource("2_u2xo6")
 
 [node name="Button2" type="Button" parent="Button"]
+layout_mode = 0
 offset_left = -289.0
 offset_top = -4.0
 offset_right = -207.0
@@ -24,13 +27,40 @@ offset_bottom = 27.0
 text = "-10
 "
 
+[node name="Gamblebutton" type="Button" parent="."]
+offset_left = -182.0
+offset_top = 200.0
+offset_right = 183.0
+offset_bottom = 284.0
+text = "Gamble
+"
+script = ExtResource("3_pe2fi")
+
+[node name="Money" type="Label" parent="."]
+offset_left = -525.0
+offset_top = -309.0
+offset_right = -485.0
+offset_bottom = -286.0
+text = "0"
+script = ExtResource("4_pe2fi")
+
 [node name="Label" type="Label" parent="."]
 offset_left = -43.0
 offset_top = 39.0
-offset_right = 23.0
+offset_right = 45.0
 offset_bottom = 62.0
 text = "amount: 10"
+metadata/amount = 0.0
+
+[node name="back" type="Button" parent="."]
+offset_left = -579.0
+offset_top = 272.0
+offset_right = -321.0
+offset_bottom = 325.0
+text = "Back
+"
 
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
 [connection signal="pressed" from="Button/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="Button/Button2" to="Button" method="_on_button_2_pressed"]
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]
