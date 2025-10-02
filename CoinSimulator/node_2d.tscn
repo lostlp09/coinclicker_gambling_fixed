@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3l6s6kbkyn6x"]
+
+[ext_resource type="Script" uid="uid://cv8od8sss0l8u" path="res://node_2d.gd" id="1_wtcfe"]
+[ext_resource type="Texture2D" uid="uid://cqplht487jcyy" path="res://coin.png" id="2_0e48y"]
+
+[node name="Node2D" type="Node2D"]
+scale = Vector2(0.949, 0.94)
+script = ExtResource("1_wtcfe")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-11, -10)
+scale = Vector2(0.949, 0.94)
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = -182.297
+offset_top = -177.66
+offset_right = 167.703
+offset_bottom = 172.34
+texture_normal = ExtResource("2_0e48y")
+metadata/money = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="TextureButton"]
+position = Vector2(-413.066, -130.851)
+scale = Vector2(0.074, 0.081)
+texture = ExtResource("2_0e48y")
+
+[node name="Coin" type="Label" parent="."]
+offset_left = -569.02
+offset_top = -319.149
+offset_right = -526.02
+offset_bottom = -244.149
+text = "0
+
+"
+
+[node name="Button" type="Button" parent="."]
+offset_left = -617.492
+offset_top = 263.83
+offset_right = -418.492
+offset_bottom = 334.83
+text = "CASINO
+"
