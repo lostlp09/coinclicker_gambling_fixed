@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://dyqf74mwpma3r"]
+[gd_scene load_steps=8 format=3 uid="uid://dyqf74mwpma3r"]
 
 [ext_resource type="Script" uid="uid://c478garu5fuor" path="res://gambling.gd" id="1_jtgiy"]
 [ext_resource type="Script" uid="uid://chkphmnf8s5b8" path="res://button.gd" id="2_u2xo6"]
 [ext_resource type="Script" uid="uid://d3e5rqyewymbg" path="res://gambleprocess.gd" id="3_pe2fi"]
 [ext_resource type="Script" uid="uid://lid3upx7hdjm" path="res://money2.gd" id="4_pe2fi"]
+[ext_resource type="Texture2D" uid="uid://u5dy375jh7ku" path="res://New Project.png" id="5_rcj3c"]
+[ext_resource type="Texture2D" uid="uid://bu4j5ig0wimmr" path="res://GOLDHGOLDGOLD.png" id="6_6owdv"]
+[ext_resource type="Texture2D" uid="uid://ceshfwemx3jb0" path="res://Screenshot 2025-10-03 105316.png" id="7_5no32"]
 
 [node name="Gambling" type="Node2D"]
 script = ExtResource("1_jtgiy")
@@ -11,27 +14,27 @@ script = ExtResource("1_jtgiy")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Button" type="Button" parent="."]
-offset_left = 99.0
-offset_top = 101.0
-offset_right = 181.0
-offset_bottom = 132.0
+offset_left = -390.0
+offset_top = 177.0
+offset_right = -308.0
+offset_bottom = 208.0
 text = "+10"
 script = ExtResource("2_u2xo6")
 
 [node name="Button2" type="Button" parent="Button"]
 layout_mode = 0
-offset_left = -289.0
-offset_top = -4.0
-offset_right = -207.0
-offset_bottom = 27.0
+offset_left = -155.0
+offset_top = 1.0
+offset_right = -73.0
+offset_bottom = 32.0
 text = "-10
 "
 
 [node name="Gamblebutton" type="Button" parent="."]
-offset_left = -182.0
-offset_top = 200.0
-offset_right = 183.0
-offset_bottom = 284.0
+offset_left = -527.0
+offset_top = 82.0
+offset_right = -356.0
+offset_bottom = 135.0
 text = "Gamble
 "
 script = ExtResource("3_pe2fi")
@@ -45,20 +48,70 @@ text = "0"
 script = ExtResource("4_pe2fi")
 
 [node name="Label" type="Label" parent="."]
-offset_left = -43.0
-offset_top = 39.0
-offset_right = 45.0
-offset_bottom = 62.0
+offset_left = -44.0
+offset_top = 129.0
+offset_right = 44.0
+offset_bottom = 152.0
 text = "amount: 10"
 metadata/amount = 0.0
 
 [node name="back" type="Button" parent="."]
-offset_left = -579.0
-offset_top = 272.0
-offset_right = -321.0
-offset_bottom = 325.0
+offset_left = -562.0
+offset_top = 253.0
+offset_right = -304.0
+offset_bottom = 306.0
 text = "Back
 "
+
+[node name="Goldhgoldgold" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(1.06253, -205.563)
+scale = Vector2(0.510248, 0.370061)
+texture = ExtResource("6_6owdv")
+
+[node name="allslots" type="Node" parent="."]
+
+[node name="First" type="Sprite2D" parent="allslots" groups=["firstslot"]]
+position = Vector2(-87.75, -241.592)
+scale = Vector2(0.0763889, 0.102539)
+texture = ExtResource("5_rcj3c")
+
+[node name="second" type="Sprite2D" parent="allslots" groups=["secondslot"]]
+position = Vector2(-5.74999, -241.592)
+scale = Vector2(0.0763889, 0.102539)
+texture = ExtResource("5_rcj3c")
+
+[node name="third" type="Sprite2D" parent="allslots" groups=["thirdslot"]]
+position = Vector2(77, -242.03)
+scale = Vector2(0.0763889, 0.102539)
+texture = ExtResource("5_rcj3c")
+
+[node name="First2" type="Sprite2D" parent="allslots" groups=["firstslot"]]
+position = Vector2(-87.75, -438.563)
+scale = Vector2(0.0763889, 0.102539)
+texture = ExtResource("5_rcj3c")
+
+[node name="second2" type="Sprite2D" parent="allslots" groups=["secondslot"]]
+position = Vector2(-5.74999, -438.563)
+scale = Vector2(0.0763889, 0.102539)
+texture = ExtResource("5_rcj3c")
+
+[node name="third2" type="Sprite2D" parent="allslots" groups=["thirdslot"]]
+position = Vector2(76.25, -438.563)
+scale = Vector2(0.0763889, 0.102539)
+texture = ExtResource("5_rcj3c")
+
+[node name="Screenshot2025-10-03105316" type="Sprite2D" parent="."]
+z_index = 125
+position = Vector2(15, -27.5)
+scale = Vector2(1, 1.51538)
+texture = ExtResource("7_5no32")
+
+[node name="Screenshot2025-10-03105317" type="Sprite2D" parent="."]
+z_index = 125
+position = Vector2(-3.875, -407.75)
+scale = Vector2(0.682099, 2.47308)
+texture = ExtResource("7_5no32")
 
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
 [connection signal="pressed" from="Button/Button2" to="." method="_on_button_2_pressed"]

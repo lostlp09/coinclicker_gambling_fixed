@@ -22,3 +22,9 @@ Money="*res://money.gd"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
+
+[global_group]
+
+firstslot=""
+secondslot=""
+thirdslot=""
