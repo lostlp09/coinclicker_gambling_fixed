@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dyqf74mwpma3r"]
+[gd_scene load_steps=9 format=3 uid="uid://dyqf74mwpma3r"]
 
 [ext_resource type="Script" uid="uid://c478garu5fuor" path="res://gambling.gd" id="1_jtgiy"]
 [ext_resource type="Script" uid="uid://chkphmnf8s5b8" path="res://button.gd" id="2_u2xo6"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://u5dy375jh7ku" path="res://New Project.png" id="5_rcj3c"]
 [ext_resource type="Texture2D" uid="uid://bu4j5ig0wimmr" path="res://GOLDHGOLDGOLD.png" id="6_6owdv"]
 [ext_resource type="Texture2D" uid="uid://ceshfwemx3jb0" path="res://Screenshot 2025-10-03 105316.png" id="7_5no32"]
+[ext_resource type="Texture2D" uid="uid://fvum8g8pudk6" path="res://Screenshot 2025-10-04 151210.png" id="8_12745"]
 
 [node name="Gambling" type="Node2D"]
 script = ExtResource("1_jtgiy")
@@ -64,54 +65,64 @@ text = "Back
 "
 
 [node name="Goldhgoldgold" type="Sprite2D" parent="."]
-z_index = 1
-position = Vector2(1.06253, -205.563)
+z_index = 191
+position = Vector2(0, -200)
 scale = Vector2(0.510248, 0.370061)
 texture = ExtResource("6_6owdv")
 
 [node name="allslots" type="Node" parent="."]
 
 [node name="First" type="Sprite2D" parent="allslots" groups=["firstslot"]]
-position = Vector2(-87.75, -241.592)
+z_index = 3
+position = Vector2(-83, -440)
 scale = Vector2(0.0763889, 0.102539)
 texture = ExtResource("5_rcj3c")
 
 [node name="second" type="Sprite2D" parent="allslots" groups=["secondslot"]]
-position = Vector2(-5.74999, -241.592)
+z_index = 3
+position = Vector2(-5.75, -250)
 scale = Vector2(0.0763889, 0.102539)
 texture = ExtResource("5_rcj3c")
 
 [node name="third" type="Sprite2D" parent="allslots" groups=["thirdslot"]]
-position = Vector2(77, -242.03)
+position = Vector2(76, -250)
 scale = Vector2(0.0763889, 0.102539)
 texture = ExtResource("5_rcj3c")
 
 [node name="First2" type="Sprite2D" parent="allslots" groups=["firstslot"]]
-position = Vector2(-87.75, -438.563)
+z_index = 3
+position = Vector2(-83, -250)
 scale = Vector2(0.0763889, 0.102539)
 texture = ExtResource("5_rcj3c")
 
 [node name="second2" type="Sprite2D" parent="allslots" groups=["secondslot"]]
-position = Vector2(-5.74999, -438.563)
+z_index = 3
+position = Vector2(-5.75, -440)
 scale = Vector2(0.0763889, 0.102539)
 texture = ExtResource("5_rcj3c")
 
 [node name="third2" type="Sprite2D" parent="allslots" groups=["thirdslot"]]
-position = Vector2(76.25, -438.563)
+z_index = 3
+position = Vector2(76, -440)
 scale = Vector2(0.0763889, 0.102539)
 texture = ExtResource("5_rcj3c")
 
 [node name="Screenshot2025-10-03105316" type="Sprite2D" parent="."]
 z_index = 125
-position = Vector2(15, -27.5)
+position = Vector2(-17, -17)
 scale = Vector2(1, 1.51538)
 texture = ExtResource("7_5no32")
 
 [node name="Screenshot2025-10-03105317" type="Sprite2D" parent="."]
 z_index = 125
-position = Vector2(-3.875, -407.75)
+position = Vector2(3.00006, -404)
 scale = Vector2(0.682099, 2.47308)
 texture = ExtResource("7_5no32")
+
+[node name="Screenshot2025-10-04151210" type="Sprite2D" parent="."]
+position = Vector2(0, -180)
+scale = Vector2(0.978545, 0.549774)
+texture = ExtResource("8_12745")
 
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
 [connection signal="pressed" from="Button/Button2" to="." method="_on_button_2_pressed"]
