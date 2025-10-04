@@ -20,3 +20,7 @@ func _on_button_2_pressed() -> void:
 	if Text.get_meta("amount") -10>=0:
 		Text.set_meta("amount",Text.get_meta("amount") - 10) 
 	pass
+
+
+func _on_button_3_pressed() -> void:
+		Text.set_meta("amount",Money.money) 

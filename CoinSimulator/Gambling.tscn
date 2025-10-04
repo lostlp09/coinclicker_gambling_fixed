@@ -24,12 +24,19 @@ script = ExtResource("2_u2xo6")
 
 [node name="Button2" type="Button" parent="Button"]
 layout_mode = 0
-offset_left = -155.0
+offset_left = -176.0
 offset_top = 1.0
-offset_right = -73.0
+offset_right = -94.0
 offset_bottom = 32.0
 text = "-10
 "
+
+[node name="Button3" type="Button" parent="Button"]
+layout_mode = 0
+offset_left = -87.0
+offset_right = -5.0
+offset_bottom = 31.0
+text = "ALL IN"
 
 [node name="Gamblebutton" type="Button" parent="."]
 offset_left = -527.0
@@ -127,4 +134,7 @@ texture = ExtResource("8_12745")
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
 [connection signal="pressed" from="Button/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="Button/Button2" to="Button" method="_on_button_2_pressed"]
+[connection signal="pressed" from="Button/Button3" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Button/Button3" to="Button" method="_on_button_2_pressed"]
+[connection signal="pressed" from="Button/Button3" to="Button" method="_on_button_3_pressed"]
 [connection signal="pressed" from="back" to="." method="_on_back_pressed"]
