@@ -17,7 +17,7 @@ func oncoinpressed() -> void:
 	self.add_child(clone)
 	clone.play()
 	
-	var effect:Sprite2D=  $TextureButton/Sprite2D
+	var effect:Sprite2D= $Coin/Sprite2D
 	
 	
 	effect = effect.duplicate()
