@@ -91,7 +91,7 @@ visible = false
 position = Vector2(182.297, 177.66)
 scale = Vector2(1, 1)
 stream = ExtResource("3_nr8wp")
-volume_db = -23.011
+volume_db = 1.286
 
 [node name="Coin" type="Label" parent="."]
 offset_left = -817.703
@@ -325,10 +325,9 @@ theme_override_fonts/font = ExtResource("6_d21ai")
 text = "1000"
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
-visible = false
-offset_left = 488.936
+offset_left = -1020.02
 offset_top = -76.5957
-offset_right = 848.936
+offset_right = -660.021
 offset_bottom = 563.404
 stream = ExtResource("12_nr8wp")
 volume_db = -80.0

@@ -64,7 +64,7 @@ func _ready() -> void:
 			text_for_multy = str(text_for_multy/1000000) +"m"
 	elif text_for_multy >= 1000:
 		text_for_multy = str(text_for_multy/1000) +"k"
-	multybutton.get_child(1).text = text_for_multy
+		multybutton.get_child(1).text = text_for_multy
 		
 		
 		

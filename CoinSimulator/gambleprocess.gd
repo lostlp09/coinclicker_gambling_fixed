@@ -168,13 +168,14 @@ func gamblingactivated() -> void:
 					Money.money-= amountyouwetted /2
 				elif  winlose == 2:
 					Money.money+= amountyouwetted / 2
-				else:
+				elif  winlose == 3:
 					Money.money+= amountyouwetted
 				done = 0
 				pickedfirstsecondthird = 0
 				yourposition = null
 				current = 0
 				winlose = 0
+				Money.savecoins()
 			await get_tree().create_timer(0.01).timeout
 			
 		

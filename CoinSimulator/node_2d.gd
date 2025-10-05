@@ -7,8 +7,7 @@ extends Node2D
 @onready var label:Label = $Coin
 func _ready() -> void:
 	
-	
-	label.text = str(Money.money)
+
 	coin.pressed.connect(oncoinpressed)
 	
 
