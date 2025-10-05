@@ -6,8 +6,10 @@ extends Node2D
 func _ready() -> void:
 	label.text = str(Money.money)
 	coin.pressed.connect(oncoinpressed)
+	
 
 func oncoinpressed() -> void:
+	
 	var effect:Sprite2D=  $TextureButton/Sprite2D
 	
 	effect = effect.duplicate()
@@ -19,11 +21,9 @@ func oncoinpressed() -> void:
 	effectfunc(effect)
 	
 	
-	Money.money+= 1 * coin.get_meta("money")
+	Money.money+= 1 * Money.safestats["multy"]
+
 	
-	var text = Money.money
-	
-	label.text = str(text)
 	
 	
 

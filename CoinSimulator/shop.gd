@@ -1,18 +1,83 @@
 extends Node
 @onready  var ShopGui =  $ShopGUi
 @onready  var onoffbutton = $Button
-var acceleartion = 19.95
+@onready var minerbuttin = $ShopGUi/miner
+@onready var autoclicker = $ShopGUi/Autoclicker
+@onready var multybutton = $ShopGUi/multiplier
+@onready var subgameplay = $ShopGUi/Gameplay
+@onready var gameplaybutton = $ShopGUi/Gameplay
+var finished = true
+var acceleartion = 35
+var timer = 0
+var autoclickertimer = 0
+@onready var videoplayer = $"../VideoStreamPlayer"
+
+func _exit_tree() -> void:
+	Money.savecoins()
+	
+	
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	Money.loadcoins()
+	
+	if Money.safestats["Autoclicker"] == 0.5:
+		autoclicker.text = "Upgrade2"
+	elif Money.safestats["Autoclicker"] == 1:
+		autoclicker.text = "Upgrade1"
+	
+	elif Money.safestats["Autoclicker"] == 0.25:
+		autoclicker.text = "Upgrade3"
+	elif Money.safestats["Autoclicker"] == 0.1:
+		autoclicker.text = "Max"
+	
+	if Money.safestats["miner"] <= 5:
+		if Money.safestats["miner"] == 0:
+			pass
+		else:
+			minerbuttin.text = "Updrade" + str( int(Money.safestats["miner"]))
+	else:
+		minerbuttin.text = "Max"
+	if Money.safestats["subgame"] == true:
+		videoplayer.visible = true
+		gameplaybutton.text = "Max"
+		
+		
+		
+	
+	
+		
+	
+	
+	timer = 0
+	autoclicker.pressed.connect(buyautoclicker)
+	minerbuttin.pressed.connect(buyminer)
+	multybutton.pressed.connect(buymulty)
+	subgameplay.pressed.connect(buygameplay)
+	
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if Money.safestats["Autoclicker"] >0:
+		autoclickertimer += delta
+		if autoclickertimer >= Money.safestats["Autoclicker"]:
+			autoclickertimer = 0
+			Money.money += 1
 
-
+	if Money.safestats["miner"] > 0:
+		timer += delta
+	if  timer >= 10:
+		timer = 0
+		for i in range(0,Money.safestats["miner"]):
+			var randomnumber = randi_range(1,101)
+			if randomnumber <= 50:
+				Money.money += 1
+			elif randomnumber <= 75:
+				Money.money += 10
+			elif randomnumber <= 100:
+				Money.money += 100
 func _on_button_pressed() -> void:
 	if  onoffbutton.get_child(0).flip_h == false	:
 		onoffbutton.get_child(0).flip_h = true
@@ -23,28 +88,108 @@ func _on_button_pressed() -> void:
 		onoffbutton.get_child(0).flip_h = false
 		
 func open()-> void:
-	var accelerationclone = acceleartion
-	for i in range(1,22):
-		acceleartion -= 0.95
-		onoffbutton.position.x -= 1 * acceleartion
-		ShopGui.position.x -= 1 * acceleartion
-		if i == 21:
-			acceleartion = accelerationclone
+	if finished:
+		finished = false
+		var accelerationclone = acceleartion
+		for i in range(1,35):
+			acceleartion -= 1
+			onoffbutton.position.x -= 1 * acceleartion
+			ShopGui.position.x -= 1 * acceleartion
+			if i == 34:
+				acceleartion = accelerationclone
 	
-		await  get_tree().create_timer(0.01).timeout
+			await  get_tree().create_timer(0.01).timeout
+		finished = true	
 		
 func close()->void:
-	var accelerationclone = acceleartion
-	for i in range(1,22):
-		acceleartion -= 0.95
-		onoffbutton.position.x += 1 * acceleartion
-		ShopGui.position.x += 1 * acceleartion
+	if finished:
+		finished = false
+		var accelerationclone = acceleartion
+		for i in range(1,35):
+			acceleartion -= 1
+			onoffbutton.position.x += 1 * acceleartion
+			ShopGui.position.x += 1 * acceleartion
 
-		if i == 21:
-			acceleartion = accelerationclone
+			if i == 34:
+				acceleartion = accelerationclone
+				
+			await  get_tree().create_timer(0.01).timeout
+		finished = true	
+		
+		
+func buyminer() ->void:
+
+	if Money.safestats["miner"] == 0 and Money.money >= 100:
+		minerbuttin.text = "Upgrade1"
+		Money.money -= 100
+		Money.safestats["miner"] = 1
+	elif	Money.safestats["miner"] == 1 and Money.money >= 500:
+		minerbuttin.text = "Upgrade2"
+		Money.money -=  500
+		Money.safestats["miner"] = 2
+	elif Money.safestats["miner"] == 2 and Money.money >= 1000:
+		minerbuttin.text = "Upgrade3"
+		Money.money -=  1000
+		Money.safestats["miner"] =3
+		
+	
+	elif Money.safestats["miner"] == 3 and Money.money >= 5000:
+		minerbuttin.text = "Upgrade4"
+		Money.safestats["miner"] = 4
+		Money.money -=  5000
+		
+	elif Money.safestats["miner"] == 4 and Money.money >= 10000:
+		minerbuttin.text = "Max"
+		Money.safestats["miner"] = 5
+		Money.money -= 5000
+		
+		
+func buyautoclicker()->void:
+	if Money.safestats["Autoclicker"] == 0 and Money.money >= 100:
+		autoclicker.text = "Upgrade1"
+		Money.money -= 100
+		Money.safestats["Autoclicker"] = 1
+	elif Money.safestats["Autoclicker"] == 1 and Money.money >= 1000:
+		autoclicker.text = "Upgrade2"
+		Money.money -= 1000
+		Money.safestats["Autoclicker"] = 0.5
+	elif Money.safestats["Autoclicker"] == 0.5 and Money.money >= 5000:
+		autoclicker.text = "Upgrade3"
+		Money.money -= 5000
+		Money.safestats["Autoclicker"] = 0.25
+	elif Money.safestats["Autoclicker"] == 0.25 and Money.money >= 10000:
+		autoclicker.text = "Max"
+		Money.money -= 10000
+		Money.safestats["Autoclicker"] = 0.1
+		
+		
+		
+		
+func buymulty()->void:
+	
+	if Money.money >= 10 * Money.safestats["multy"]:
+		Money.money -= 10 * Money.safestats["multy"]
+		if 	Money.safestats["multy"] == 1:
+			Money.safestats["multy"] += 1
+		else:
+				Money.safestats["multy"] += 2
+				
+func buygameplay()->void:
+	if Money.safestats["subgame"] == false and Money.money >= 1000:
+		Money.safestats["subgame"] = true
+		
+		subgameplay.text = "Max"
+		videoplayer.visible = true	
+		Money.money -= 1000
+		
+	
+	
 			
-		await  get_tree().create_timer(0.01).timeout
+	
+		
+	
 
+	
 	
 	
 		

@@ -1,10 +1,27 @@
-[gd_scene load_steps=17 format=3 uid="uid://b3l6s6kbkyn6x"]
+[gd_scene load_steps=39 format=3 uid="uid://b3l6s6kbkyn6x"]
 
 [ext_resource type="Script" uid="uid://cv8od8sss0l8u" path="res://node_2d.gd" id="1_wtcfe"]
 [ext_resource type="Texture2D" uid="uid://cqplht487jcyy" path="res://coin.png" id="2_0e48y"]
 [ext_resource type="Script" uid="uid://jh2gmp5gyp88" path="res://shop.gd" id="3_0hol4"]
+[ext_resource type="Script" uid="uid://hoi0d7ynwr23" path="res://coin.gd" id="3_4d7sh"]
 [ext_resource type="Texture2D" uid="uid://bdrqnpuxhnvwn" path="res://arrowright.png" id="4_q6r6c"]
-[ext_resource type="Texture2D" uid="uid://1qa2acv2i3n4" path="res://icon.svg" id="5_q6r6c"]
+[ext_resource type="FontFile" uid="uid://b13f2qwjoef4l" path="res://LuckiestGuy-Regular.ttf" id="6_d21ai"]
+[ext_resource type="Texture2D" uid="uid://bssemwe3augxh" path="res://Miner.png" id="6_kdubu"]
+[ext_resource type="Texture2D" uid="uid://bs6vnqtqwj1y1" path="res://Autoclicker.png" id="8_rj586"]
+[ext_resource type="Texture2D" uid="uid://bdsswmw277gpu" path="res://2xstart.jpg" id="10_ir8iy"]
+[ext_resource type="Texture2D" uid="uid://cte88tjd5cxxb" path="res://FirstAvatar.webp" id="11_hqns4"]
+[ext_resource type="Texture2D" uid="uid://uw8wd8p13h7r" path="res://Screenshot 2025-10-05 134548.png" id="12_0h7mo"]
+[ext_resource type="VideoStream" uid="uid://dq0qo560h3boc" path="res://subsurfer.ogv" id="12_nr8wp"]
+[ext_resource type="Texture2D" uid="uid://dpcu8rox0tmh1" path="res://Screenshot 2025-10-05 134432.png" id="12_x0ka3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x0ka3"]
+bg_color = Color(0, 0.389052, 0.75634, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0h7mo"]
+bg_color = Color(0, 0.207929, 0.441045, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nr8wp"]
+bg_color = Color(0, 0.270419, 0.654117, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0hol4"]
 
@@ -28,6 +45,31 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nr8wp"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d2bti"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ta5nu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_flf07"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k73cj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rjqkl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fs4d3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d21ai"]
+bg_color = Color(6.97896e-07, 0.538281, 0.13905, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ei405"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rj586"]
+bg_color = Color(0, 0.314656, 0.0819116, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2nhjh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bjha6"]
+bg_color = Color(0, 0.724517, 0.230028, 1)
+
 [node name="Node2D" type="Node2D"]
 scale = Vector2(0.949, 0.94)
 script = ExtResource("1_wtcfe")
@@ -42,7 +84,6 @@ offset_top = -177.66
 offset_right = 167.703
 offset_bottom = 172.34
 texture_normal = ExtResource("2_0e48y")
-metadata/money = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="TextureButton"]
 position = Vector2(-413.066, -130.851)
@@ -57,12 +98,16 @@ offset_bottom = -244.149
 text = "0
 
 "
+script = ExtResource("3_4d7sh")
 
 [node name="Button" type="Button" parent="."]
 offset_left = -617.492
 offset_top = 263.83
 offset_right = -418.492
 offset_bottom = 334.83
+theme_override_styles/hover = SubResource("StyleBoxFlat_x0ka3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0h7mo")
+theme_override_styles/normal = SubResource("StyleBoxFlat_nr8wp")
 text = "CASINO
 "
 
@@ -70,10 +115,10 @@ text = "CASINO
 script = ExtResource("3_0hol4")
 
 [node name="Button" type="Button" parent="Shop"]
-offset_left = 501.0
-offset_top = -32.0
-offset_right = 563.0
-offset_bottom = 43.0
+offset_left = 881.0
+offset_top = -170.0
+offset_right = 943.0
+offset_bottom = -57.0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_0hol4")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_q6r6c")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_kdubu")
@@ -88,39 +133,163 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_nr8wp")
 flat = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Shop/Button"]
-position = Vector2(36, 34)
+position = Vector2(29, 50)
 scale = Vector2(0.117432, 0.123779)
 texture = ExtResource("4_q6r6c")
 flip_h = true
 
 [node name="ShopGUi" type="Sprite2D" parent="Shop"]
-position = Vector2(687, -7)
-scale = Vector2(1.84375, 5.07813)
-texture = ExtResource("5_q6r6c")
+position = Vector2(1320.95, -7.49793)
+scale = Vector2(5.02804, 8.0667)
+texture = ExtResource("12_x0ka3")
+
+[node name="miner" type="Button" parent="Shop/ShopGUi"]
+anchors_preset = -1
+anchor_left = -6.71551
+anchor_top = -1.1761
+anchor_right = -6.71551
+anchor_bottom = -1.16828
+offset_left = 925.288
+offset_top = 124.845
+offset_right = 973.288
+offset_bottom = 139.845
+scale = Vector2(0.721298, 0.819386)
+theme_override_fonts/font = ExtResource("6_d21ai")
+theme_override_font_sizes/font_size = 10
+theme_override_styles/focus = SubResource("StyleBoxEmpty_d2bti")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_ta5nu")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_flf07")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_k73cj")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_rjqkl")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_fs4d3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_d21ai")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_ei405")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rj586")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_2nhjh")
+theme_override_styles/normal = SubResource("StyleBoxFlat_bjha6")
+text = "Buy"
+metadata/_edit_use_anchors_ = true
+
+[node name="Miner" type="Sprite2D" parent="Shop/ShopGUi/miner"]
+z_index = 10
+position = Vector2(24.1116, -10.6765)
+scale = Vector2(0.415526, 0.186381)
+texture = ExtResource("6_kdubu")
 
 [node name="Autoclicker" type="Button" parent="Shop/ShopGUi"]
-offset_left = -50.4407
-offset_top = -51.2
-offset_right = -9.44068
-offset_bottom = -43.2
+anchors_preset = -1
+anchor_left = -6.71551
+anchor_top = -1.1761
+anchor_right = -6.71551
+anchor_bottom = -1.16828
+offset_left = 986.265
+offset_top = 124.952
+offset_right = 1034.27
+offset_bottom = 139.952
+scale = Vector2(0.721298, 0.819386)
+theme_override_fonts/font = ExtResource("6_d21ai")
+theme_override_font_sizes/font_size = 10
+theme_override_styles/focus = SubResource("StyleBoxEmpty_d2bti")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_ta5nu")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_flf07")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_k73cj")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_rjqkl")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_fs4d3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_d21ai")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_ei405")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rj586")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_2nhjh")
+theme_override_styles/normal = SubResource("StyleBoxFlat_bjha6")
+text = "Buy"
+metadata/_edit_use_anchors_ = true
 
-[node name="Miner" type="Button" parent="Shop/ShopGUi"]
-offset_left = -53.0
-offset_top = -16.0
-offset_right = 47.0
-offset_bottom = -8.0
+[node name="autoclickerimage" type="Sprite2D" parent="Shop/ShopGUi/Autoclicker"]
+z_index = 10
+position = Vector2(23.8482, -10.8239)
+scale = Vector2(0.13162, 0.0615925)
+texture = ExtResource("8_rj586")
 
-[node name="Multiply" type="Button" parent="Shop/ShopGUi"]
-offset_left = -53.0
-offset_top = -30.0
-offset_right = 40.0
-offset_bottom = -22.0
+[node name="multiplier" type="Button" parent="Shop/ShopGUi"]
+anchors_preset = -1
+anchor_left = -6.71551
+anchor_top = -1.1761
+anchor_right = -6.71551
+anchor_bottom = -1.16828
+offset_left = 925.259
+offset_top = 162.083
+offset_right = 973.259
+offset_bottom = 177.083
+scale = Vector2(0.721298, 0.819386)
+theme_override_fonts/font = ExtResource("6_d21ai")
+theme_override_font_sizes/font_size = 10
+theme_override_styles/focus = SubResource("StyleBoxEmpty_d2bti")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_ta5nu")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_flf07")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_k73cj")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_rjqkl")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_fs4d3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_d21ai")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_ei405")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rj586")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_2nhjh")
+theme_override_styles/normal = SubResource("StyleBoxFlat_bjha6")
+text = "Upgrade"
+metadata/_edit_use_anchors_ = true
 
-[node name="BrainrotIFtime" type="Button" parent="Shop/ShopGUi"]
-offset_left = -50.0
-offset_top = -43.0
-offset_right = 50.0
-offset_bottom = -35.0
+[node name="Sprite2D" type="Sprite2D" parent="Shop/ShopGUi/multiplier"]
+position = Vector2(24.0052, -12.5832)
+scale = Vector2(0.229584, 0.105626)
+texture = ExtResource("10_ir8iy")
+
+[node name="Gameplay" type="Button" parent="Shop/ShopGUi"]
+anchors_preset = -1
+anchor_left = -6.71551
+anchor_top = -1.1761
+anchor_right = -6.71551
+anchor_bottom = -1.16828
+offset_left = 985.891
+offset_top = 161.727
+offset_right = 1033.89
+offset_bottom = 176.727
+scale = Vector2(0.721298, 0.819386)
+theme_override_fonts/font = ExtResource("6_d21ai")
+theme_override_font_sizes/font_size = 10
+theme_override_styles/focus = SubResource("StyleBoxEmpty_d2bti")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_ta5nu")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_flf07")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_k73cj")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_rjqkl")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_fs4d3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_d21ai")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_ei405")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rj586")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_2nhjh")
+theme_override_styles/normal = SubResource("StyleBoxFlat_bjha6")
+text = "BUY
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="surferlogo" type="Sprite2D" parent="Shop/ShopGUi/Gameplay"]
+position = Vector2(24.6469, -12.3061)
+scale = Vector2(0.190949, 0.101923)
+texture = ExtResource("11_hqns4")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+visible = false
+offset_left = 488.936
+offset_top = -76.5957
+offset_right = 848.936
+offset_bottom = 563.404
+stream = ExtResource("12_nr8wp")
+volume_db = -80.0
+autoplay = true
+loop = true
+
+[node name="Screenshot2025-10-05134432" type="Sprite2D" parent="."]
+z_index = -395
+position = Vector2(598.525, -178.723)
+scale = Vector2(25.9249, 13.2388)
+texture = ExtResource("12_0h7mo")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Shop/Button" to="Shop" method="_on_button_pressed"]

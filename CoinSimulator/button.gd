@@ -23,4 +23,6 @@ func _on_button_2_pressed() -> void:
 
 
 func _on_button_3_pressed() -> void:
-		Text.set_meta("amount",Money.money) 
+	print(Money.money)
+	print(Text.get_meta("amount"))
+	Text.set_meta("amount",Money.money + 10) 

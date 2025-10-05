@@ -26,7 +26,7 @@ func gamblingactivated() -> void:
 		slotspcitures = allslots.get_children()
 		Gambling = true
 		var amountyouwetted = amounttextobject.get_meta("amount")
-		var randomzahl = randi_range(1,100)
+		var randomzahl = randi_range(1,101)
 		if randomzahl <= 50:
 			
 			print("you lose")
