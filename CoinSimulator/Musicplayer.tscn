@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0noxq73k2xjq"]
+
+[ext_resource type="AudioStream" uid="uid://dwna88sxkq4sa" path="res://Tokyo Music Walker- Way Home.mp3" id="2_impkb"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_impkb")
+autoplay = true
+parameters/looping = true

@@ -10,19 +10,20 @@ func _ready() -> void:
 
 
 func _on_pressed() -> void:
+	print("hi")
 	
 	Text.set_meta("amount",Text.get_meta("amount") + 10) 
 
 	pass # Replace with function body.
 
 
-func _on_button_2_pressed() -> void:
+
+
+func _on__pressed() -> void:
 	if Text.get_meta("amount") -10>=0:
 		Text.set_meta("amount",Text.get_meta("amount") - 10) 
-	pass
 
 
-func _on_button_3_pressed() -> void:
-	print(Money.money)
-	print(Text.get_meta("amount"))
-	Text.set_meta("amount",Money.money + 10) 
+
+func _on_all_in_pressed() -> void:
+	Text.set_meta("amount",Money.money) 

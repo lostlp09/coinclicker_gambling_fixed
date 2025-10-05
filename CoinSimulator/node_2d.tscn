@@ -1,9 +1,10 @@
-[gd_scene load_steps=39 format=3 uid="uid://b3l6s6kbkyn6x"]
+[gd_scene load_steps=40 format=3 uid="uid://b3l6s6kbkyn6x"]
 
 [ext_resource type="Script" uid="uid://cv8od8sss0l8u" path="res://node_2d.gd" id="1_wtcfe"]
 [ext_resource type="Texture2D" uid="uid://cqplht487jcyy" path="res://coin.png" id="2_0e48y"]
 [ext_resource type="Script" uid="uid://jh2gmp5gyp88" path="res://shop.gd" id="3_0hol4"]
 [ext_resource type="Script" uid="uid://hoi0d7ynwr23" path="res://coin.gd" id="3_4d7sh"]
+[ext_resource type="AudioStream" uid="uid://d1sahmkcmcx73" path="res://coin-257878(1).mp3" id="3_nr8wp"]
 [ext_resource type="Texture2D" uid="uid://bdrqnpuxhnvwn" path="res://arrowright.png" id="4_q6r6c"]
 [ext_resource type="FontFile" uid="uid://b13f2qwjoef4l" path="res://LuckiestGuy-Regular.ttf" id="6_d21ai"]
 [ext_resource type="Texture2D" uid="uid://bssemwe3augxh" path="res://Miner.png" id="6_kdubu"]
@@ -85,20 +86,28 @@ offset_right = 167.703
 offset_bottom = 172.34
 texture_normal = ExtResource("2_0e48y")
 
-[node name="Sprite2D" type="Sprite2D" parent="TextureButton"]
-position = Vector2(-413.066, -130.851)
-scale = Vector2(0.074, 0.081)
-texture = ExtResource("2_0e48y")
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="TextureButton"]
+visible = false
+position = Vector2(182.297, 177.66)
+scale = Vector2(1, 1)
+stream = ExtResource("3_nr8wp")
+volume_db = -23.011
 
 [node name="Coin" type="Label" parent="."]
-offset_left = -569.02
-offset_top = -319.149
-offset_right = -526.02
-offset_bottom = -244.149
+offset_left = -817.703
+offset_top = -544.681
+offset_right = -742.703
+offset_bottom = 1.31915
+theme_override_font_sizes/font_size = 101
 text = "0
 
 "
 script = ExtResource("3_4d7sh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin"]
+position = Vector2(-84.2992, 68.0851)
+scale = Vector2(0.383231, 0.36269)
+texture = ExtResource("2_0e48y")
 
 [node name="Button" type="Button" parent="."]
 offset_left = -617.492
@@ -176,6 +185,17 @@ position = Vector2(24.1116, -10.6765)
 scale = Vector2(0.415526, 0.186381)
 texture = ExtResource("6_kdubu")
 
+[node name="pricetag" type="Label" parent="Shop/ShopGUi/miner"]
+z_index = 160
+layout_mode = 0
+offset_left = 10.0585
+offset_top = -33.7095
+offset_right = 50.0585
+offset_bottom = -10.7095
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_d21ai")
+text = "100"
+
 [node name="Autoclicker" type="Button" parent="Shop/ShopGUi"]
 anchors_preset = -1
 anchor_left = -6.71551
@@ -209,16 +229,26 @@ position = Vector2(23.8482, -10.8239)
 scale = Vector2(0.13162, 0.0615925)
 texture = ExtResource("8_rj586")
 
+[node name="pricetag" type="Label" parent="Shop/ShopGUi/Autoclicker"]
+z_index = 160
+offset_left = 10.0585
+offset_top = -33.7095
+offset_right = 50.0585
+offset_bottom = -10.7095
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_d21ai")
+text = "100"
+
 [node name="multiplier" type="Button" parent="Shop/ShopGUi"]
 anchors_preset = -1
 anchor_left = -6.71551
 anchor_top = -1.1761
 anchor_right = -6.71551
 anchor_bottom = -1.16828
-offset_left = 925.259
-offset_top = 162.083
-offset_right = 973.259
-offset_bottom = 177.083
+offset_left = 924.588
+offset_top = 186.48
+offset_right = 972.588
+offset_bottom = 201.48
 scale = Vector2(0.721298, 0.819386)
 theme_override_fonts/font = ExtResource("6_d21ai")
 theme_override_font_sizes/font_size = 10
@@ -241,16 +271,26 @@ position = Vector2(24.0052, -12.5832)
 scale = Vector2(0.229584, 0.105626)
 texture = ExtResource("10_ir8iy")
 
+[node name="pricetag" type="Label" parent="Shop/ShopGUi/multiplier"]
+z_index = 160
+offset_left = 8.82343
+offset_top = -37.5204
+offset_right = 48.8234
+offset_bottom = -14.5204
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_d21ai")
+text = "500"
+
 [node name="Gameplay" type="Button" parent="Shop/ShopGUi"]
 anchors_preset = -1
 anchor_left = -6.71551
 anchor_top = -1.1761
 anchor_right = -6.71551
 anchor_bottom = -1.16828
-offset_left = 985.891
-offset_top = 161.727
-offset_right = 1033.89
-offset_bottom = 176.727
+offset_left = 988.231
+offset_top = 186.48
+offset_right = 1036.23
+offset_bottom = 201.48
 scale = Vector2(0.721298, 0.819386)
 theme_override_fonts/font = ExtResource("6_d21ai")
 theme_override_font_sizes/font_size = 10
@@ -274,6 +314,16 @@ position = Vector2(24.6469, -12.3061)
 scale = Vector2(0.190949, 0.101923)
 texture = ExtResource("11_hqns4")
 
+[node name="pricetag" type="Label" parent="Shop/ShopGUi/Gameplay"]
+z_index = 160
+offset_left = 8.82339
+offset_top = -37.5204
+offset_right = 48.8234
+offset_bottom = -14.5204
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_d21ai")
+text = "1000"
+
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
 visible = false
 offset_left = 488.936
@@ -287,7 +337,7 @@ loop = true
 
 [node name="Screenshot2025-10-05134432" type="Sprite2D" parent="."]
 z_index = -395
-position = Vector2(598.525, -178.723)
+position = Vector2(573.235, -229.787)
 scale = Vector2(25.9249, 13.2388)
 texture = ExtResource("12_0h7mo")
 

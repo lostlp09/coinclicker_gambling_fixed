@@ -10,6 +10,7 @@ var yourposition=null
 var done  = 0
 const  resetpoint = -40
 const  maxhight = -440.0
+var winlose = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	self.pressed.connect(gamblingactivated)
@@ -30,7 +31,7 @@ func gamblingactivated() -> void:
 		if randomzahl <= 50:
 			
 			print("you lose")
-			Money.money-= amountyouwetted
+			winlose =  0
 			print(positionforslots)
 		elif randomzahl <= 70:
 			var clonelist = positionforslots.duplicate()
@@ -41,18 +42,18 @@ func gamblingactivated() -> void:
 			clonelist.erase(clone)
 			positionforslots[2] = clonelist[0]
 			print("you lost half of the amount")
-			Money.money-= amountyouwetted/2
+			winlose =  1
 		elif randomzahl <= 90:
 			var randomnumber = randi_range(0,1)
 			if randomnumber == 0:
 				positionforslots = [cherry,cherry,cherry]
 			else:
 				positionforslots = [Bomb,Bomb,Bomb]
-			Money.money+= amountyouwetted/2
+			winlose =  2
 		else:
 			positionforslots = [pixel,pixel,pixel]		
 																	
-			Money.money+= amountyouwetted
+			winlose =  3
 			print("you won the jackpot")
 		var current = 0
 		while Gambling:
@@ -161,11 +162,19 @@ func gamblingactivated() -> void:
 								pickedfirstsecondthird = 5
 						i.position = Vector2(76.0,maxhight )
 			if Gambling == false:
-				
+				if winlose == 0:
+					Money.money-= amountyouwetted
+				elif winlose == 1:
+					Money.money-= amountyouwetted /2
+				elif  winlose == 2:
+					Money.money+= amountyouwetted / 2
+				else:
+					Money.money+= amountyouwetted
 				done = 0
 				pickedfirstsecondthird = 0
 				yourposition = null
 				current = 0
+				winlose = 0
 			await get_tree().create_timer(0.01).timeout
 			
 		
@@ -187,4 +196,10 @@ func gamblingactivated() -> void:
 			
 		
 			
+	
+
+
+func _on_back_pressed() -> void:
+	if Gambling == false:
+		get_tree().change_scene_to_file("res://node_2d.tscn")
 	

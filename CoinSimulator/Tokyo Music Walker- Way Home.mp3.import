@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dwna88sxkq4sa"
+path="res://.godot/imported/Tokyo Music Walker- Way Home.mp3-2acff4b54ff150c3bc19f09d2fa33a34.mp3str"
+
+[deps]
+
+source_file="res://Tokyo Music Walker- Way Home.mp3"
+dest_files=["res://.godot/imported/Tokyo Music Walker- Way Home.mp3-2acff4b54ff150c3bc19f09d2fa33a34.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

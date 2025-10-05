@@ -1,16 +1,24 @@
 extends Node2D
+@onready var coinsound = $TextureButton/AudioStreamPlayer2D
+
 
 @onready var coin =$TextureButton
 # Called when the node enters the scene tree for the first time
 @onready var label:Label = $Coin
 func _ready() -> void:
+	
+	
 	label.text = str(Money.money)
 	coin.pressed.connect(oncoinpressed)
 	
 
 func oncoinpressed() -> void:
+	var clone = coinsound.duplicate()
+	self.add_child(clone)
+	clone.play()
 	
 	var effect:Sprite2D=  $TextureButton/Sprite2D
+	
 	
 	effect = effect.duplicate()
 	self.add_child(effect)
@@ -52,4 +60,11 @@ func effectfunc(effectparticle) -> void:
 func _on_button_pressed() -> void:
 	
 	get_tree().change_scene_to_file("res://Gambling.tscn")
+
+func  _process(delta: float) -> void:
+	for i in self.get_children():
+		if i is AudioStreamPlayer2D:
+			if i.playing == false:
+				i.queue_free()
+		
 	

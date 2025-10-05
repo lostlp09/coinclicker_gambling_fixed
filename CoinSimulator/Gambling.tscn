@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://dyqf74mwpma3r"]
+[gd_scene load_steps=13 format=3 uid="uid://dyqf74mwpma3r"]
 
 [ext_resource type="Script" uid="uid://c478garu5fuor" path="res://gambling.gd" id="1_jtgiy"]
 [ext_resource type="Script" uid="uid://chkphmnf8s5b8" path="res://button.gd" id="2_u2xo6"]
 [ext_resource type="Script" uid="uid://d3e5rqyewymbg" path="res://gambleprocess.gd" id="3_pe2fi"]
 [ext_resource type="Script" uid="uid://lid3upx7hdjm" path="res://money2.gd" id="4_pe2fi"]
+[ext_resource type="Texture2D" uid="uid://cqplht487jcyy" path="res://coin.png" id="5_l2jdo"]
 [ext_resource type="Texture2D" uid="uid://u5dy375jh7ku" path="res://New Project.png" id="5_rcj3c"]
 [ext_resource type="Texture2D" uid="uid://bu4j5ig0wimmr" path="res://GOLDHGOLDGOLD.png" id="6_6owdv"]
 [ext_resource type="Texture2D" uid="uid://fvum8g8pudk6" path="res://Screenshot 2025-10-04 151210.png" id="8_12745"]
@@ -23,41 +24,44 @@ script = ExtResource("1_jtgiy")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="Button" type="Button" parent="."]
+[node name="+10" type="Button" parent="."]
 z_index = 80
-offset_left = -390.0
+offset_left = -376.0
 offset_top = 177.0
-offset_right = -308.0
+offset_right = -294.0
 offset_bottom = 208.0
 theme_override_styles/hover = SubResource("StyleBoxFlat_12745")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_l2jdo")
 theme_override_styles/normal = SubResource("StyleBoxFlat_xyxlq")
 text = "+10"
 script = ExtResource("2_u2xo6")
+metadata/_edit_use_anchors_ = true
 
-[node name="Button2" type="Button" parent="Button"]
+[node name="-10" type="Button" parent="."]
 z_index = 80
-layout_mode = 0
-offset_left = -176.0
-offset_top = 1.0
-offset_right = -94.0
-offset_bottom = 32.0
+offset_left = -571.0
+offset_top = 177.0
+offset_right = -489.0
+offset_bottom = 208.0
 theme_override_styles/hover = SubResource("StyleBoxFlat_12745")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_l2jdo")
 theme_override_styles/normal = SubResource("StyleBoxFlat_xyxlq")
-text = "-10
-"
+text = "-10"
+script = ExtResource("2_u2xo6")
+metadata/_edit_use_anchors_ = true
 
-[node name="Button3" type="Button" parent="Button"]
+[node name="All in" type="Button" parent="."]
 z_index = 80
-layout_mode = 0
-offset_left = -87.0
-offset_right = -5.0
-offset_bottom = 31.0
+offset_left = -473.0
+offset_top = 177.0
+offset_right = -391.0
+offset_bottom = 208.0
 theme_override_styles/hover = SubResource("StyleBoxFlat_12745")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_l2jdo")
 theme_override_styles/normal = SubResource("StyleBoxFlat_xyxlq")
 text = "ALL IN"
+script = ExtResource("2_u2xo6")
+metadata/_edit_use_anchors_ = true
 
 [node name="Gamblebutton" type="Button" parent="."]
 z_index = 20
@@ -71,24 +75,36 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_xyxlq")
 text = "Gamble
 "
 script = ExtResource("3_pe2fi")
+metadata/_edit_use_anchors_ = true
 
 [node name="Money" type="Label" parent="."]
 z_index = 555
-offset_left = -525.0
-offset_top = -309.0
-offset_right = -485.0
-offset_bottom = -286.0
+offset_left = -527.0
+offset_top = -373.0
+offset_right = -447.0
+offset_bottom = -180.0
+scale = Vector2(0.932821, 1.00178)
+theme_override_font_sizes/font_size = 86
 text = "0"
 script = ExtResource("4_pe2fi")
+metadata/_edit_use_anchors_ = true
+
+[node name="Coin" type="Sprite2D" parent="Money"]
+z_index = 185
+position = Vector2(-95.4094, 63.8861)
+scale = Vector2(0.376, 0.31)
+texture = ExtResource("5_l2jdo")
 
 [node name="Label" type="Label" parent="."]
 z_index = 345
-offset_left = -44.0
+offset_left = -113.0
 offset_top = 129.0
-offset_right = 44.0
-offset_bottom = 152.0
+offset_right = 113.0
+offset_bottom = 193.0
+theme_override_font_sizes/font_size = 46
 text = "amount: 0"
 metadata/amount = 0.0
+metadata/_edit_use_anchors_ = true
 
 [node name="back" type="Button" parent="."]
 z_index = 80
@@ -101,6 +117,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_l2jdo")
 theme_override_styles/normal = SubResource("StyleBoxFlat_xyxlq")
 text = "Back
 "
+metadata/_edit_use_anchors_ = true
 
 [node name="Goldhgoldgold" type="Sprite2D" parent="."]
 z_index = 191
@@ -174,10 +191,7 @@ position = Vector2(-8, -504)
 scale = Vector2(0.851293, 1.84806)
 texture = ExtResource("8_l2jdo")
 
-[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
-[connection signal="pressed" from="Button/Button2" to="." method="_on_button_2_pressed"]
-[connection signal="pressed" from="Button/Button2" to="Button" method="_on_button_2_pressed"]
-[connection signal="pressed" from="Button/Button3" to="." method="_on_button_2_pressed"]
-[connection signal="pressed" from="Button/Button3" to="Button" method="_on_button_3_pressed"]
-[connection signal="pressed" from="Button/Button3" to="Button" method="_on_button_2_pressed"]
-[connection signal="pressed" from="back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="+10" to="+10" method="_on_pressed"]
+[connection signal="pressed" from="-10" to="+10" method="_on__pressed"]
+[connection signal="pressed" from="All in" to="+10" method="_on_all_in_pressed"]
+[connection signal="pressed" from="back" to="Gamblebutton" method="_on_back_pressed"]
