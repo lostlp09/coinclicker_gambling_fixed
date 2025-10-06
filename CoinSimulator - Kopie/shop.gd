@@ -218,11 +218,8 @@ func buymulty()->void:
 		elif text_for_multy >= 1000:
 			text_for_multy = str(text_for_multy/1000) +"k"
 		multybutton.get_child(1).text = text_for_multy
+
 		
-			
-		
-	
-		multybutton.text = str(500 * Money.safestats["multy"])
 				
 func buygameplay()->void:
 	if Money.safestats["subgame"] == false and Money.money >= 1000:
