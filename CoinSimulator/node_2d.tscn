@@ -89,7 +89,6 @@ texture_normal = ExtResource("2_0e48y")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="TextureButton"]
 visible = false
 position = Vector2(182.297, 177.66)
-scale = Vector2(1, 1)
 stream = ExtResource("3_nr8wp")
 volume_db = 1.286
 
@@ -231,6 +230,7 @@ texture = ExtResource("8_rj586")
 
 [node name="pricetag" type="Label" parent="Shop/ShopGUi/Autoclicker"]
 z_index = 160
+layout_mode = 0
 offset_left = 10.0585
 offset_top = -33.7095
 offset_right = 50.0585
@@ -273,6 +273,7 @@ texture = ExtResource("10_ir8iy")
 
 [node name="pricetag" type="Label" parent="Shop/ShopGUi/multiplier"]
 z_index = 160
+layout_mode = 0
 offset_left = 8.82343
 offset_top = -37.5204
 offset_right = 48.8234
@@ -316,6 +317,7 @@ texture = ExtResource("11_hqns4")
 
 [node name="pricetag" type="Label" parent="Shop/ShopGUi/Gameplay"]
 z_index = 160
+layout_mode = 0
 offset_left = 8.82339
 offset_top = -37.5204
 offset_right = 48.8234
@@ -325,6 +327,7 @@ theme_override_fonts/font = ExtResource("6_d21ai")
 text = "1000"
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+visible = false
 offset_left = -1020.02
 offset_top = -76.5957
 offset_right = -660.021

@@ -9,6 +9,7 @@ extends Node
 var finished = true
 var acceleartion = 35
 var timer = 0
+var globaltimer = 0
 var autoclickertimer = 0
 @onready var videoplayer = $"../VideoStreamPlayer"
 
@@ -84,6 +85,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	globaltimer += delta
+	if globaltimer >= 5:
+		Money.savecoins()
+		globaltimer = 0
 	if Money.safestats["Autoclicker"] >0:
 		autoclickertimer += delta
 		if autoclickertimer >= Money.safestats["Autoclicker"]:
